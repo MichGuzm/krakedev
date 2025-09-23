@@ -5,8 +5,15 @@ saludar=function(){
     let estatura=recuperarFloat("txtEstatura");
     let mensajeBienvenida="Bienvenido "+nombre+" "+apellido;
     mostrarTexto("lblResultado",mensajeBienvenida);
+
+    mostrarImagen("imgSaludo","./imagenes/saludo.gif")
 }
 
+mostrarImagen=function(idComponente,rutaImagen){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.src=rutaImagen; 
+}
 mostrarTexto=function(idComponente,mensaje){
     let componente;
     componente=document.getElementById(idComponente);
