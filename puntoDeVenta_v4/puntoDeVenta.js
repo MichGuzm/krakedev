@@ -10,13 +10,15 @@ calcularValorTotal = function () {
     let valorDescuento=calcularDescuento(valorSubtotal,porcentajeDescuento);
     let valorSinIva=valorSubtotal-valorDescuento;
     let valorIVA=calcularIva(valorSinIva);
-    let valorTotal;
+    let valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
 
     mostrarTexto("lblSubtotal",valorSubtotal);
     mostrarTexto("lblDescuento",valorDescuento);
     mostrarTexto("lblValorIVA",valorIVA);
-    
+    mostrarTexto("lblTotal",valorTotal);
 
+    let resumen="Valor a pagar por "+cantidad+" "+nombreProducto+" con "+porcentajeDescuento+"% de descuento: USD"+valorTotal;
+    mostrarTexto("lblResumen",resumen);
     //1. Recuperar el nombre del producto como String
     //2. Recuperar el precio como float
     //3. Recuperar cantidad como int
