@@ -7,12 +7,14 @@ calcularValorTotal = function () {
 
     //variables para almacenar los retornos de las funciones
     let valorSubtotal=calcularSubtotal(precioProducto,cantidad);
-    let valorDescuento=calcularDescuento(precioProducto,porcentajeDescuento);
-    let valorIVA;
+    let valorDescuento=calcularDescuento(valorSubtotal,porcentajeDescuento);
+    let valorSinIva=valorSubtotal-valorDescuento;
+    let valorIVA=calcularIva(valorSinIva);
     let valorTotal;
 
     mostrarTexto("lblSubtotal",valorSubtotal);
     mostrarTexto("lblDescuento",valorDescuento);
+    mostrarTexto("lblValorIVA",valorIVA);
     
 
     //1. Recuperar el nombre del producto como String
