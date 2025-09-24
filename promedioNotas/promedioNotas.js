@@ -7,4 +7,11 @@ calcularPromedioNotas=function(){
     let cmpPromedio=document.getElementById("lblPromedio");
     cmpPromedio.innerText=promedioFormateado.toFixed(2);
 
+    if(promedioFormateado>=7){
+    let cmpImagenBandera=document.getElementById("img");
+    cmpImagenBandera.src="exito.gif";
+    }else{
+    let cmpImagenBandera=document.getElementById("img");
+    cmpImagenBandera.src="fracaso.gif";
+    }
 }
