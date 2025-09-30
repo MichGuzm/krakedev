@@ -23,19 +23,21 @@ calcularCapacidadPago=function(edad,ingresos,egresos){
 
 calcularDescuento=function(precio,cantidad){
     let totalSinDescuento=precio*cantidad;
-    let porcentajeDescuento;
-    if(cantidad>3){
+    let porcentajeDescuento=0;
+
+    if (cantidad<3) {
         porcentajeDescuento=0;
-    }else if(cantidad>=3 && cantidad<=5){
+    } else if (cantidad>=3 && cantidad<=5) {
         porcentajeDescuento=0.02;
-    }else if(cantidad>=6 && cantidaD<=11){
+    } else if (cantidad>=6 &&cantidad<= 11) {
         porcentajeDescuento=0.03;
-    }else if(cantidad>=12){
+    } else if (cantidad>=12) {
         porcentajeDescuento=0.04;
     }
 
-    let descuento=totalSinDescuento-porcentajeDescuento;
+    let descuento=totalSinDescuento*porcentajeDescuento;
     let totalConDescuento=totalSinDescuento-descuento;
+    
     return totalConDescuento;
 }
 
