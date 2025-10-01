@@ -22,3 +22,4 @@ calcularTotal=function(subtotal,descuento,iva){
     valorTotal=subtotal-descuento+iva;
     return valorTotal;
 }
+
