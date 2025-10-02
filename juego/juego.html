@@ -15,6 +15,7 @@
             <img src="./imagenes/piedra.png" width="50px" onclick="jugar('piedra');"/>
             <img src="./imagenes/papel.png" width="50px" onclick="jugar('papel');"/>
             <img src="./imagenes/tijera.png" width="50px" onclick="jugar('tijera');"/>
+         <div class="titulo" id="lblUsuario"></div>
         </div>
         <div class="titulo">
         OPONENTE
@@ -22,7 +23,10 @@
         <div class="imagenes">
         <img id="img" width="50px"/>
         </div>
-         <div class="titulo" id="lblResultado"></div>
+        <div class="titulo" id="lblCPU"></div>
+        <div class="titulo" id="lblResultadoParcial"></div>
+        <div class="resultado" id="lblResultadoTotal"></div>
+        <input type="button" value="NUEVA PARIDA" onclick="limpiar();"/>
     </div>
     </body>
 </html>
