@@ -84,3 +84,23 @@ validarEstructura = function (placa) {
     return error;
 }
 
+obtenerTipoVehiculo=function(placa){
+    let segundaLetra=placa[1];
+     if (!esMayuscula(segundaLetra)) {
+        return null;
+    }
+    if (segundaLetra=="A"||segundaLetra=="Z") {
+        return "VEHICULO COMERCIAL";
+    } else if (segundaLetra=="E") {
+        return "VEHICULO GUBERNAMENTAL";
+    } else if (segundaLetra=="X") {
+        return "VEHICULO DE USO OFICIAL";
+    } else if (segundaLetra=="S") {
+        return "VEHICULO GOBIERNO PROVINCIAL";
+    } else if (segundaLetra=="M") {
+        return "VEHICULO MUNICIPAL";
+    } else {
+        return "VEHICULO PARTICULAR";
+    }
+}
+

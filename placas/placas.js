@@ -4,9 +4,12 @@ validarPlaca=function(){
     
     if(erroresEstructura==null){
         let provincia=obtenerProvincia(valorIngresado);
+        let tipoVehiculo = obtenerTipoVehiculo(valorIngresado);
         if(provincia!==null){
         mostrarTexto("lblSmsEstructura","ESTRUCTURA VALIDA");
         mostrarTexto("lblProvincia",provincia);
+        mostrarTexto("lblTipoVehiculo",tipoVehiculo);
+       
         }else{
             mostrarTexto("lblSmsEstructura","ESTRUCTURA VALIDA");
             mostrarTexto("lblProvincia","PROVINCIA INCORRECTA");
@@ -14,6 +17,7 @@ validarPlaca=function(){
     }else{
         mostrarTexto("lblSmsEstructura","ESTRUCTURA INCORRECTA");
         mostrarTexto("lblErrores",erroresEstructura);
+        mostrarTexto("lblTipoVehiculo","TIPO DE VEHICULO INCORRECTO");
     }
 }
 
