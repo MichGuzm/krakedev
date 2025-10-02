@@ -23,3 +23,10 @@ validarPlaca=function(){
     }
 }
 
+limpiar=function(){
+    mostrarTextoEnCaja("lblPlaca","")
+    mostrarTexto("lblSmsEstructura","");
+    mostrarTexto("lblProvincia","");
+    mostrarTexto("lblTipoVehiculo","");
+    mostrarTexto("lblPicoYPlaca","");
+}
