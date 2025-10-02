@@ -104,3 +104,21 @@ obtenerTipoVehiculo=function(placa){
     }
 }
 
+obtenerDiaPicoYPlaca=function(placa){
+    let ultimoDigito = placa[placa.length - 1];
+    let digito = parseInt(ultimoDigito);
+    
+    if (digito== 1||digito==2) {
+        return "LUNES";
+    } else if (digito ==3||digito==4) {
+        return "MARTES";
+    } else if (digito ==5||digito==6) {
+        return "MIERCOLES";
+    } else if (digito ==7||digito==8) {
+        return "JUEVES";
+    } else if (digito==9||digito==0) {
+        return "VIERNES";
+    } else {
+        return null;
+    }
+}

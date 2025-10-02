@@ -5,10 +5,12 @@ validarPlaca=function(){
     if(erroresEstructura==null){
         let provincia=obtenerProvincia(valorIngresado);
         let tipoVehiculo = obtenerTipoVehiculo(valorIngresado);
+        let diaPicoPlaca = obtenerDiaPicoYPlaca(valorIngresado);
         if(provincia!==null){
         mostrarTexto("lblSmsEstructura","ESTRUCTURA VALIDA");
         mostrarTexto("lblProvincia",provincia);
         mostrarTexto("lblTipoVehiculo",tipoVehiculo);
+        mostrarTexto("lblPicoYPlaca",diaPicoPlaca);
        
         }else{
             mostrarTexto("lblSmsEstructura","ESTRUCTURA VALIDA");
