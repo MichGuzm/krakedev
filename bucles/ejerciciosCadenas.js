@@ -17,3 +17,23 @@ recorrerCadena=function(cadena){
         console.log("CARACTER "+caracter+" posicion"+posicion);
     }
 }
+
+invertirCadena=function(cadena) {
+    let resultado="";
+    
+    for(let posicion=cadena.length-1;posicion>= 0;posicion--) {
+        let letra=cadena.charAt(posicion);
+        resultado=resultado+letra;
+    }
+    
+    return resultado;
+}
+
+ejecutarPrueba2=function() {
+    let mensaje=recuperarTexto("txtCadena");
+    let cadenaInvertida=invertirCadena(mensaje);
+    
+    console.log("Cadena original: "+mensaje);
+    console.log("Cadena invertida: "+cadenaInvertida);
+    mostrarTexto("txtResultado",cadenaInvertida);
+}
