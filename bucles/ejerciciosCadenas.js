@@ -37,3 +37,32 @@ ejecutarPrueba2=function() {
     console.log("Cadena invertida: "+cadenaInvertida);
     mostrarTexto("txtResultado",cadenaInvertida);
 }
+
+buscarLetra=function(cadena,letra){
+   let letraIterada;
+   let existeLetra=false;
+    for(let i=0;i<cadena.length;i++){
+        letraIterada=cadena.charAT(i);
+        if(letraIterada==letra){
+            existeLetra=true;
+        }
+    }
+    if(existeLetra==true){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+contarMayusculas=function(cadena){
+    let letra;
+    let contadorMayusculas;
+    for(let i=0;i<cadena.length;i++){
+        letra=cadena.charAt(i);
+        if(esMayuscula(letra)){
+            contadorMayusculas++;
+        }
+    }
+    console.log(contadorMayusculas);
+}
