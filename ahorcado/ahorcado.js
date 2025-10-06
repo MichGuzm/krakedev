@@ -46,3 +46,16 @@ mostrarLetra = function (letra, posicion) {
         }
     
 }
+
+validar=function(letra){
+    let letrasEncontradas=0;
+     
+    for(i=0;i<palabraSecreta.length;i++){
+        let caracterActual=palabraSecreta.charAt(i);
+    }
+    if(caracterActual==letra){
+        mostrarLetra(letra,i);
+        letrasEncontradas++;
+    }
+}
+
