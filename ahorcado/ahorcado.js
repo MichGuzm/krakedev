@@ -1,4 +1,7 @@
 let palabraSecreta="";
+let intentos=0;
+let coincidencias=0;
+let errores=0;
 
 esMayuscula = function (caracter) {
     let codigoAscii = caracter.charCodeAt(0);
@@ -60,7 +63,12 @@ validar=function(letra){
         if(caracterActual==letra){
         mostrarLetra(letra,i);
         letrasEncontradas=letrasEncontradas+1;
+        coincidencias=coincidencias+1;
         }
+    }
+    if (letrasEncontradas==0) {
+        alert("LA LETRA NO ES PARTE DE LA PALABRA");
+        errores=errores+1;
     }
 }
 
@@ -70,7 +78,13 @@ ingresarLetra=function(){
     console.log(letra);
 
     if(esMayuscula(letra)){
+        intentos=intentos+1;
         validar(letra);
+        if(coincidencias>=5){
+            alert("HA GANADO");
+        }else if(intentos>=10){
+            alert("HA PERDIDO");
+        }
     }else{
         alert("SOLO SE ACEPTAN MAYUSCULAS");
     }
