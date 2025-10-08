@@ -2,6 +2,39 @@ let clientes=[{cedula:"1234545",nombre:"Juan",edad:20},
     {cedula:"2852585",nombre:"Maria",edad:25},
     {cedula:"8544212",nombre:"Martin",edad:40}];
 
+guardarCambios=function(){
+    let valorCedula=recuperarTexto("txtCedula");
+    let valorNombre=recuperarTexto("txtNombre");
+    let valorEdad=recuperarFloat("txtEdad");
+    let datosCliente={};
+    datosCliente.cedula=valorCedula;
+    datosCliente.nombre=valorNombre;
+    datosCliente.edad=valorEdad;
+    modificarCliente(datosCliente);
+    mostrarClientes();
+}
+
+    modificarCliente=function(cliente){
+    let clienteEncontrado=buscarCliente(cliente.cedula);
+    if(clienteEncontrado!=null){
+        clienteEncontrado.nombre=cliente.nombre;
+        clienteEncontrado.edad=cliente.edad;
+    }
+}
+
+
+    ejecutarBusqueda=function(){
+    let valorCedula=recuperarTexto("txtCedulaBusqueda");
+    let cliente=buscarCliente(valorCedula);
+    if(cliente==null){
+        alert("cliente no encontrado");
+    }else{
+        mostrarTextoEnCaja("txtCedulaBusqueda",cliente.cedula);
+          mostrarTextoEnCaja("txtNombre",cliente.nombre);
+          mostrarTextoEnCaja("txtEdad",cliente.edad);
+    }
+}
+
 crearCliente=function(){
     let valorCedula=recuperarTexto("txtCedula");
     let valorNombre=recuperarTexto("txtNombre");
