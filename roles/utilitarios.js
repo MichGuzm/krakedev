@@ -56,12 +56,7 @@ mostrarOpcionEmpleado=function(){
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
     mostrarEmpleados();
-    deshabilitarComponente("txtBusquedaCedula");
-    deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");
+    deshabilitar();
 }
 
 mostrarOpcionRol=function(){
@@ -74,4 +69,21 @@ mostrarOpcionResumen=function(){
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+}
+
+deshabilitar=function(){
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+}
+
+esMayuscula=function(caracter){
+    let codigoAscii=caracter.charCodeAt(0);
+    if(codigoAscii>=65&&codigoAscii<=90){
+        return true;
+    }else{
+        return false;
+    }
 }
