@@ -160,3 +160,11 @@ ejecutarBusqueda=function(){
     habilitarComponente("txtSueldo");
 }
 
+limpiar=function(){
+    deshabilitar();
+    mostrarTextoEnCaja("txtCedula","");
+    mostrarTextoEnCaja("txtNombre","");
+    mostrarTextoEnCaja("txtApellido","");
+    mostrarTextoEnCaja("txtSueldo","");
+    esNuevo=false;
+}
