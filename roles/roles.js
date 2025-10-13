@@ -180,3 +180,31 @@ buscarPorRol=function(){
         mostrarTexto("infoSueldo",empleado.sueldo);
     }
 }
+
+calcularAporteEmpleado=function(sueldo){
+    let aporte=sueldo*0.0945;
+    return aporte;
+}
+
+calcularValorAPagar=function(sueldo,aporte,descuento){
+    let ValorAPagar=sueldo-aporte-descuento;
+    return ValorAPagar;
+}
+
+calcularRol=function(){
+    let valorSueldo=recuperarFloatDiv("infoSueldo");
+    let valorDescuento=recuperarFloat("txtDescuentos");
+    if(isNaN(valorDescuento)){
+        mostrarTexto("lblErrorDescuentos","Los descuentos deben ser un número");
+        return;
+    }
+    if(valorDescuento<0&&valorDescuento>valorSueldo){
+        mostrarTexto("lblErrorDescuentos","Los descuentos no pueden ser menores a 0");
+        return;
+    }
+
+    let valorAporte= calcularAporteEmpleado(valorSueldo);
+    let valorAPagar = calcularValorAPagar(valorSueldo, valorAporte, valorDescuento);
+    mostrarTexto("infoIESS",valorAporte);
+    mostrarTexto("infoPago",valorAPagar);
+}

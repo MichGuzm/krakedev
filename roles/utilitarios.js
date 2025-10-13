@@ -35,6 +35,27 @@ recuperarFloat = function(idComponente){
     return valorFlotante;
  }
 
+
+recuperarTextoDiv=function(idComponente){
+    let componente;
+    let valorIngresado;
+    componente=document.getElementById(idComponente);
+    valorIngresado=componente.textContent;
+    return valorIngresado;
+}
+
+recuperarIntDiv=function(idComponente){
+    let valorCaja= recuperarTextoDiv(idComponente);
+   let valorEntero = parseInt(valorCaja);
+   return valorEntero;
+}
+
+recuperarFloatDiv=function(idComponente){
+    let valorCaja= recuperarTextoDiv(idComponente);
+   let valorEntero = parseFloat(valorCaja);
+   return valorEntero;
+}
+
 mostrarComponente = function(idComponente){
     document.getElementById(idComponente).style.display = "block";
 }
