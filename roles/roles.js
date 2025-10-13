@@ -116,11 +116,17 @@ guardar=function(){
     }
 
     if(validacion){
-        if(esNuevo==true){
-            let empleadoExiste=buscarEmpleado(valorCedula);
-            if(empleadoExiste!==null){
-                alert("YA EXISTE UN EMPLEADO CON LA CEDULA "+valorCedula);
-            }else{
+        let empleadoExiste=buscarEmpleado(valorCedula);
+        if(empleadoExiste!==null){
+                empleadoExiste.nombre=valorNombre;
+                empleadoExiste.apellido=valorApellido;
+                empleadoExiste.sueldo=valorSueldo;
+                
+                alert("EMPLEADO MODIFICADO CORRECTAMENTE");
+                mostrarEmpleados();
+                deshabilitar();
+                esNuevo=false;
+        }else{
                 let nuevoEmpleado={};
                 nuevoEmpleado.cedula=valorCedula;
                 nuevoEmpleado.nombre=valorNombre;
@@ -128,14 +134,29 @@ guardar=function(){
                 nuevoEmpleado.sueldo=valorSueldo;
 
                 let guardarCorrecto=agregarEmpleado(nuevoEmpleado);
-                if(guardarCorrecto){
-                    alert("EMPLEADO GUARDADO CORRECTAMENTE");
-                    
-                }
-            }
-            mostrarEmpleados();
-            deshabilitar();
+                alert("EMPLEADO GUARDADO CORRECTAMENTE");
+                mostrarEmpleados();
+                deshabilitar();
+                esNuevo=false;
         }
-
     }
+    
 }
+
+ejecutarBusqueda=function(){
+    let cedulaBusqueda=recuperarTexto("txtBusquedaCedula");
+    let empleadoEncontrado=buscarEmpleado(cedulaBusqueda);
+    if(empleadoEncontrado==null){
+        alert("EMPLEADO NO EXISTE");
+    }else{
+        mostrarTextoEnCaja("txtCedula",empleadoEncontrado.cedula);
+        mostrarTextoEnCaja("txtNombre",empleadoEncontrado.nombre);
+        mostrarTextoEnCaja("txtApellido",empleadoEncontrado.apellido);
+        mostrarTextoEnCaja("txtSueldo",empleadoEncontrado.sueldo);
+    }
+    deshabilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+}
+
