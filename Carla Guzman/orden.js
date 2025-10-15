@@ -70,7 +70,7 @@ encontrarMenor=function(){
     for(let i=1;i<personas.length;i++){
         elementoPersona=personas[i];
         if(elementoPersona.edad<personaMenor.edad){
-            console.log(elementoPersona.nombre+" es mayor que "+personaMenor.nombre)
+            console.log(elementoPersona.nombre+" es menor que "+personaMenor.nombre)
             personaMenor=elementoPersona;
             
         }
