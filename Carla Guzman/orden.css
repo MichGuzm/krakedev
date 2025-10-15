@@ -1,0 +1,70 @@
+body {
+    font-family: Arial;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+.principal {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.ingresoDatos {
+    margin: 10px 0;
+    text-align: center;
+}
+
+#lblPlaca {
+    padding: 8px;
+    width: 150px;
+    border: 1px;
+    font-size: 14px;
+}
+
+.botones {
+    text-align: center;
+    margin: 15px 0;
+}
+
+input[type="button"] {
+    background-color: #0078d7;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.estructura {
+    margin: 10px 0;
+    text-align: center;
+}
+
+#lblSmsEstructura {
+    color: rgb(255, 0, 0);
+}
+
+#lblErrores {
+    color: red;
+}
+
+.tablaPersonas {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    background-color:blueviolet;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+}
