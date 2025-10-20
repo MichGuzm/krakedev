@@ -42,22 +42,28 @@ mostrarCuentas = function () {
         "<th>NUMERO DE CUENTA</th>" +
         "<th>NOMBRE</th>" +
         "<th>SALDO</th>" +
+        "<th>IVA 12%</th>" +
+        "<th>IVA 15%</th>" +  // ← Para practicar
         "</tr>";
 
     let elementoCuenta;
     for (let i = 0; i < cuentas.length; i++) {
         elementoCuenta = cuentas[i]; 
+        
+        // Diferentes porcentajes de IVA
+        let saldoConIva12 = elementoCuenta.saldo * 1.12;  // 12%
+        let saldoConIva15 = elementoCuenta.saldo * 1.15;  // 15%
+        
         contenidoTabla +=
             "<tr><td>" + elementoCuenta.numeroCuenta + "</td>" +
             "<td>" + elementoCuenta.nombre + " " + elementoCuenta.apellido + "</td>" +     
-            "<td>" + elementoCuenta.saldo.toFixed(2) + "</td>" +
+            "<td>$" + elementoCuenta.saldo.toFixed(2) + "</td>" +
+            "<td>$" + saldoConIva12.toFixed(2) + "</td>" +
+            "<td>$" + saldoConIva15.toFixed(2) + "</td>" +
             "</tr>";
     }
     contenidoTabla += "</table>";
     cmpTabla.innerHTML = contenidoTabla;
-
-
-
 }
 
 
@@ -228,3 +234,18 @@ verMovimientos = function () {
   filtrarMovimientos(numeroCuenta);
 };
 
+eliminarCuenta = function() {
+    let numeroCuenta = recuperarTexto("txtCuentaExistente");
+    
+    if(confirm("¿Seguro que quieres eliminar la cuenta " + numeroCuenta + "?")) {
+        for(let i = 0; i < cuentas.length; i++) {
+            if(cuentas[i].numeroCuenta == numeroCuenta) {
+                cuentas.splice(i, 1);
+                alert("CUENTA ELIMINADA");
+                limpiarPantalla();
+                return;
+            }
+        }
+        alert("CUENTA NO ENCONTRADA");
+    }
+}
