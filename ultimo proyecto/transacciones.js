@@ -158,6 +158,19 @@ esLetra = function(caracter) {
            (codigoAscii >= 97 && codigoAscii <= 122);
 }
 
+
+buscarProducto = function(nombreProducto) {
+    let elementoProducto;
+    let elementoProductoEncontrado = null;
+    for(let i = 0; i < productos.length; i++) {
+        elementoProducto = productos[i];
+        if(elementoProducto.nombre == nombreProducto) {
+            elementoProductoEncontrado = elementoProducto;
+            break;
+        }
+    }
+    return elementoProductoEncontrado;
+}
 // Función principal para agregar producto
 agregarProducto = function() {
     // Limpiar todos los mensajes de error primero
@@ -297,12 +310,15 @@ agregarProducto = function() {
         }
     }
     
-    // Si hay errores, no agregar el producto
+    // Si hay errores, no agregar/modificar el producto
     if (hayErrores) {
         return false;
     }
     
-    // Si no hay errores, crear y agregar el producto
+    // Buscar si el producto ya existe usando la nueva función
+    let productoEncontrado = buscarProducto(nombre);
+    
+    // Crear el objeto producto
     let nuevoProducto = {
         nombre: nombre,
         descripcion: descripcion,
@@ -311,8 +327,18 @@ agregarProducto = function() {
         stock: stock
     };
     
-    productos.push(nuevoProducto);
-    alert("PRODUCTO AGREGADO CORRECTAMENTE");
+    // Si el producto existe, modificarlo; si no, agregarlo
+    if (productoEncontrado !== null) {
+        // Modificar el producto existente
+        productoEncontrado.descripcion = descripcion;
+        productoEncontrado.categoria = categoria;
+        productoEncontrado.precio = precio;
+        productoEncontrado.stock = stock;
+        alert("PRODUCTO MODIFICADO CORRECTAMENTE");
+    } else {
+        productos.push(nuevoProducto);
+        alert("PRODUCTO AGREGADO CORRECTAMENTE");
+    }
     
     // Limpiar campos
     document.getElementById("txtNombre").value = "";
@@ -322,4 +348,19 @@ agregarProducto = function() {
     document.getElementById("txtStock").value = "";
     
     return true;
+}
+
+mostrarEstadisticas = function() {
+    let totalProductos = productos.length;
+    let totalValorInventario = 0;
+    
+    // Calcular el valor total del inventario
+    for (let i = 0; i < productos.length; i++) {
+        let producto = productos[i];
+        totalValorInventario += producto.precio * producto.stock;
+    }
+    
+    // También puedes mostrarlo en elementos HTML si prefieres
+    mostrarTexto("lblTotalProductos", "Total de productos: " + totalProductos);
+    mostrarTexto("lblValorInventario", "Valor del inventario: $" + totalValorInventario.toFixed(2));
 }
