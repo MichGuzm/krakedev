@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestión de Productos Electrónicos</title>
+    <script src="practice.js"></script>
+    <script src="utilitarios.js"></script>
+</head>
+<body>
+    <h2>REGISTRO DE PRODUCTOS ELECTRÓNICOS</h2>
+    
+    <div>
+        <label>Código (PROD-001):</label>
+        <input type="text" id="txtCodigo">
+        <div id="errorCodigo" style="color:red"></div>
+    </div>
+    
+    <div>
+        <label>Nombre:</label>
+        <input type="text" id="txtNombre">
+        <div id="errorNombre" style="color:red"></div>
+    </div>
+    
+    <div>
+        <label>Marca:</label>
+        <input type="text" id="txtMarca">
+        <div id="errorMarca" style="color:red"></div>
+    </div>
+    
+    <div>
+        <label>Precio:</label>
+        <input type="text" id="txtPrecio">
+        <div id="errorPrecio" style="color:red"></div>
+    </div>
+    
+    <div>
+        <label>Stock:</label>
+        <input type="text" id="txtStock">
+        <div id="errorStock" style="color:red"></div>
+    </div>
+    
+    <div>
+        <label>Garantía (meses):</label>
+        <select id="cmbGarantia">
+            <option value="6">6 meses</option>
+            <option value="12">12 meses</option>
+            <option value="24">24 meses</option>
+        </select>
+        <div id="errorGarantia" style="color:red"></div>
+    </div>
+    
+    <br>
+    <button onclick="agregarProducto()">Agregar/Modificar Producto</button>
+    <button onclick="mostrarProductos()">Mostrar Productos</button>
+    <button onclick="mostrarEstadisticas()">Estadísticas</button>
+    
+    <div id="listaProductos"></div>
+    <div id="estadisticas"></div>
+</body>
+</html>

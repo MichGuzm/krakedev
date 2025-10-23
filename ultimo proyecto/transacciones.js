@@ -364,3 +364,9 @@ mostrarEstadisticas = function() {
     mostrarTexto("lblTotalProductos", "Total de productos: " + totalProductos);
     mostrarTexto("lblValorInventario", "Valor del inventario: $" + totalValorInventario.toFixed(2));
 }
+
+esLetra = function(caracter) {
+    let codigoAscii = caracter.charCodeAt(0);
+    return (codigoAscii >= 65 && codigoAscii <= 90) || 
+           (codigoAscii >= 97 && codigoAscii <= 122);
+}
